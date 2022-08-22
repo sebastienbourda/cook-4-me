@@ -7,9 +7,12 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
+puts "> Delete Offers"
+Offer.destroy_all
+puts "--> Offers deleted"
 puts "> Delete Users"
 User.destroy_all
-puts "> Users deleted"
+puts "--> Users deleted"
 
 puts "> Create Chef Simon user"
 chef_simon = User.new(
@@ -17,11 +20,8 @@ chef_simon = User.new(
   password: "secret"
 )
 chef_simon.save!
-puts "> Chef Simon created"
+puts "--> Chef Simon created"
 
-puts "> Delete Offers"
-Offer.destroy_all
-puts "> Offers deleted"
 
 puts "> Create offers for Chef Simon"
 
@@ -33,8 +33,7 @@ puts "> Create offers for Chef Simon"
   )
   offer.user = chef_simon
   offer.save!
-  puts "#{offer.title} created"
+  puts "--> #{offer.title} created"
 end
 
-puts "> offers created"
 puts "> LOG WITH: chefsimon@grandchef.com    / password: secret"
