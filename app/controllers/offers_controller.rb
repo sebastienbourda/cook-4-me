@@ -4,7 +4,7 @@ class OffersController < ApplicationController
 
   def show
     @offer = Offer.find(params[:id])
-    @user = current_user
+    @chef = @offer.user
   end
 
   def new
