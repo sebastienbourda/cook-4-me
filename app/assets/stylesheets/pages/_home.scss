@@ -19,6 +19,10 @@ body {
 
 #wide-bg {
   background-image: url('assets/landing/Buffet.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -100px;
+  height:350px;
 }
 
 button {
