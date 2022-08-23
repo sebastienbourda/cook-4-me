@@ -4,18 +4,25 @@
   </div>
 </div>
 
-<div class="container-fluid d-flex">
+<div class="container-fluid p-5">
   <div class="row">
     <% @offers.each do |offer| %>
-      <div class="col">
-        <div class="card card-offer" style="width: 18rem;">
-          <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h6 class="card-subtitle mb-2 text-muted"><%= User.find(offer.user_id).first_name %></h6>
-            <h5 class="card-title"><%= offer.title %></h5>
-            <p class="card-text">From <%= offer.price_per_person %>€/person
+      <div class="col-3 pb-3">
+        <%= link_to(offer_path(offer)) do %>
+          <div class="card card-offer">
+            <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" class="card-img-top" alt="...">
+            <div class="card-body d-flex justify-content-between align-items-center">
+              <div class="left-card-body">
+                <h6 class="card-subtitle text-muted"><%= User.find(offer.user_id).first_name %></h6>
+                <h5 class="card-title"><%= offer.title %></h5>
+                <p class="card-text">From <%= offer.price_per_person %>€/person</p>
+              </div>
+              <div class="right-card-body">
+                <p>3.8 <i class="fa-solid fa-star"></i></p>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     <% end %>
   </div>
