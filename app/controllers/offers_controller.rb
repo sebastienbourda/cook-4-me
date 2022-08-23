@@ -3,6 +3,8 @@ class OffersController < ApplicationController
   end
 
   def show
+    @offer = Offer.find(params[:id])
+    @user = current_user
   end
 
   def new
