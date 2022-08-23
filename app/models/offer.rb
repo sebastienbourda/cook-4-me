@@ -3,6 +3,6 @@ class Offer < ApplicationRecord
   has_many :meals
 
   validates :title, presence: true
-  validates :type, presence: true
+  validates :category, presence: true
   validates :price_per_person, presence: true
 end
