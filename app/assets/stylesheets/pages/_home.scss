@@ -40,7 +40,11 @@ body {
 
 button {
   position: absolute;
-  bottom: 130px;
+  bottom: 1vh;
   width: 220px;
   height: 50px;
+}
+
+.form-group {
+  padding-top:15px;
 }
