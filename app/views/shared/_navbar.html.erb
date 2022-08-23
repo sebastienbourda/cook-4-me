@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+  <div class="container-fluid px-5">
+    <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "logo.svg" %>
     <% end %>
 
@@ -11,6 +11,9 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <li class="nav-item">
+            <%= link_to "Menus", "/offers", class: "nav-link" %>
+          </li>
           <li class="nav-item dropdown">
             <%= image_tag "users/#{current_user.first_name}.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
