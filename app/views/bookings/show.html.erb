@@ -1,0 +1,10 @@
+<%= render "offers/offer_details", title: "Congratulations for your booking" %>
+  <div class="offer-booking border bg-light p-3">
+    <p><u>Date:</u></p>
+    <p> <%= @booking.date %></p>
+    <p><u>Comments:</u></p>
+    <p><%= @booking.comments %></p>
+    <p><u>Number of guests:</u> <%= @booking.number_of_guests == 1 ? "#{@booking.number_of_guests} person" : "#{@booking.number_of_guests} people" %></p>
+    <p><u>Status:</u> <%= @booking.status %></p>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<div class="banner" style="background-image: linear-gradient(rgba(30,30,30,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80');">
+ <div class="blur">
+  <h2><%= title %></h2>
+ </div>
+</div>
+
+<div class="container mt-4 position-relative">
+  <div class="offer-details bg-light rounded border">
+    <div class="banner rounded w-100 d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(30,30,30,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8Y2hlZnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60');">
+      <h3>Your chef: <%= @offer.user.first_name %></h3>
+    </div>
+    <% @offer.meals.each do |meal| %>
+      <div class="d-flex mt-3 border-bottom">
+        <div>
+          <img src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80" alt="" width="200">
+        </div>
+        <div class ="ms-3">
+          <h4><%= meal.name %></h4>
+          <ul class="list-inline">
+            <% JSON.parse(meal.ingredients).each do |ingredient| %>
+              <li class="list-inline-item"><%= ingredient %> |</li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+  </div>
