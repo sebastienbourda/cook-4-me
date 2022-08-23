@@ -17,39 +17,70 @@ puts "> Delete Users"
 User.destroy_all
 puts "  --> Users deleted"
 
-puts "> Create Chef Simon user"
-chef_simon = User.new(
-  first_name: 'Simon',
-  last_name: 'Aniel',
-  email: "chefsimon@grandchef.com",
-  password: "secret"
-)
-chef_simon.save!
-puts "  --> Chef Simon created"
+# =============== Create Users =====================
+
+puts "> Create Users"
+url = '/app/assets/images/users'
+first_names_users = %w[austin brooke jack stefan]
+first_names_chefs = %w[alexander jane philip akachi]
 
 
-puts "> Create offers for Chef Simon"
-
-4.times do
-  offer = Offer.new(
-    title: Faker::Restaurant.type,
-    category: Faker::Food.ethnic_category,
-    price_per_person: rand(10..15)
+# Create 4 "standard" users
+4.times do |i|
+  user = User.new(
+    first_name: first_names_users[i],
+    last_name: 'aniel',
+    email: "#{first_names_users[i]}@cook4me.com",
+    password: "secret",
+    photo_url: "#{url}/#{first_names_users[i]}.jpg",
+    chef: false,
+    chef_location: ""
   )
-  offer.user = chef_simon
-  offer.save!
-  puts "  --> #{offer.title} created"
-  3.times do
-    meal = Meal.new(
-      name: Faker::Food.dish,
-      category: Faker::Food.ethnic_category,
-      ingredients: [Faker::Food.ingredient, Faker::Food.vegetables, Faker::Food.fruits, Faker::Food.spice]
-    )
-    meal.user = chef_simon
-    meal.offer = offer
-    meal.save!
-    puts "    --> #{meal.name} created and added to #{offer.title}"
-  end
+  user.save!
+  puts "  --> User created"
 end
 
-puts "> LOG WITH: chefsimon@grandchef.com    / password: secret"
+
+# Create 4 "Chef" users
+4.times do |i|
+  user = User.new(
+    first_name: first_names_chefs[i],
+    last_name: 'aniel',
+    email: "#{first_names_chefs[i]}@cook4me.com",
+    password: "secret",
+    photo_url: "#{url}/chefs/#{first_names_chefs[i]}.jpg",
+    chef: true,
+    chef_location: "Bordeaux"
+  )
+  user.save!
+  puts "  --> User created"
+end
+
+
+
+# =============== Create Offers for Chef =====================
+
+# puts "> Create offers for Chef Simon"
+# 4.times do
+#   offer = Offer.new(
+#     title: Faker::Restaurant.type,
+#     category: Faker::Food.ethnic_category,
+#     price_per_person: rand(10..15)
+#   )
+#   offer.user = chef_simon
+#   offer.save!
+#   puts "  --> #{offer.title} created"
+#   3.times do
+#     meal = Meal.new(
+#       name: Faker::Food.dish,
+#       category: Faker::Food.ethnic_category,
+#       ingredients: [Faker::Food.ingredient, Faker::Food.vegetables, Faker::Food.fruits, Faker::Food.spice]
+#     )
+#     meal.user = chef_simon
+#     meal.offer = offer
+#     meal.save!
+#     puts "    --> #{meal.name} created and added to #{offer.title}"
+#   end
+# end
+
+# puts "> LOG WITH: chefsimon@grandchef.com    / password: secret"
