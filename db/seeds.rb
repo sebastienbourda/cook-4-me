@@ -19,6 +19,8 @@ puts "  --> Users deleted"
 
 puts "> Create Chef Simon user"
 chef_simon = User.new(
+  first_name: 'Simon',
+  last_name: 'Aniel',
   email: "chefsimon@grandchef.com",
   password: "secret"
 )
