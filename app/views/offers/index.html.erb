@@ -1,0 +1,17 @@
+<div class="container-fluid banner">
+  <div class="blur">
+    <h4>All offers</h4>
+  </div>
+</div>
+
+<% @offers.each do |offer| %>
+  <div class="card" style="width: 18rem;">
+    <%# <img src="..." class="card-img-top" alt="..."> %>
+    <div class="card-body">
+      <h5 class="card-title"><%= offer.title %></h5>
+      <%= offer.user_id %>
+      <p class="card-text"><%#= User.where(id == offer.user_id) %></p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div>
+<% end %>
