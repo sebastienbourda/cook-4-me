@@ -1,1 +1,31 @@
 // Specific CSS for your home-page
+
+.landing-banner {
+  height: 150px;
+}
+
+h2 {
+  color: black;
+  font-size: 22px;
+}
+
+body {
+  color: black;
+}
+
+.banner {
+  color: black;
+}
+
+#wide-bg {
+  background-image: url('assets/landing/Buffet.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-y: -100px;
+  height:350px;
+}
+
+button {
+  position: absolute;
+  bottom: 30px;
+}
