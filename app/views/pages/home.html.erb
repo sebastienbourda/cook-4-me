@@ -11,6 +11,7 @@
         <div class="form-group">
           <label for="formGroupNumberInput2">FOR HOW MANY</label>
           <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="42">
+          <input class='d-flex flex-row-reverse btn-secondary my-3' type='submit' value='check it'>
         </div>
       </form>
     </div>
@@ -24,9 +25,7 @@
     </div>
     <div>
       <div id='wide-bg'>
-        <div class="d-flex justify-content-center">
-        <button>Discover the menus</button>
-        </div>
+        <%= link_to "<button>Discover the menus</button>".html_safe, offers_path, :class=>"d-flex justify-content-center" %>
       </div>
     </div>
   </div>

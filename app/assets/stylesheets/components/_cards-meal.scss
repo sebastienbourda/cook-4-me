@@ -3,8 +3,8 @@
 }
 
 .card-meal {
-  width: 330px;
-  height: 410px;
+  width: 35vh;
+  height: 42vh;
   border-radius: 3px;
   box-shadow: 0 0 5px rgb(230,230,230);
   padding: 30px;
@@ -35,6 +35,9 @@
   flex-wrap: wrap;
 }
 
+.card-meal h2 {
+  font-size: 1.9rem;
+}
 .meal h2 {
   position: absolute;
   color: black;
