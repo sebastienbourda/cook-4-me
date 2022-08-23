@@ -13,6 +13,10 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0!important;
 }
 
+h3 {
+  font-family: roboto thin;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -40,6 +44,7 @@ body {
 
 button {
   position: absolute;
+  font-family: 'roboto';
   bottom: 1vh;
   width: 220px;
   height: 50px;
