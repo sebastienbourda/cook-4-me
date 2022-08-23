@@ -11,3 +11,14 @@
 - rails db:create db:migrate
 - yarn install
 - yarn build
+
+
+## 23/08/2022
++ Pages:
+  - home
+  - offer:
+    - index
+    - show
+    - new/edit
+    - create/update
+    - destroy

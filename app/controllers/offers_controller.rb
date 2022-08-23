@@ -1,5 +1,6 @@
 class OffersController < ApplicationController
   def index
+    @offers = Offer.all
   end
 
   def show
@@ -19,5 +20,4 @@ class OffersController < ApplicationController
 
   def destroy
   end
-
 end
