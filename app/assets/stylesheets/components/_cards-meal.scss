@@ -12,6 +12,13 @@
   overflow: hidden;
 }
 
+@media only screen and (max-height: 800px) {
+  .card-meal {
+    height: 70vh;
+    opacity: 0.8;
+    right: 20px;
+  }
+}
 .card-meal.form-group {
   width: 250px;
   margin: -100px;
