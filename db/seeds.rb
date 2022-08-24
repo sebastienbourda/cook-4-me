@@ -37,7 +37,7 @@ first_names_chefs = %w[alexander jane philip akachi]
     password: "secret",
     photo_url: "#{url_users}/#{first_names_users[i]}.jpg",
     chef: false,
-    chef_location: ""
+    address: ""
   )
   user.save!
   puts "  --> User created"
@@ -53,7 +53,7 @@ end
     password: "secret",
     photo_url: "#{url_users}/chefs/#{first_names_chefs[i]}.jpg",
     chef: true,
-    chef_location: "Bordeaux"
+    address: Faker::Address.full_address
   )
   user.save!
   puts "  --> User created"
