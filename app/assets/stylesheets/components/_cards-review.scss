@@ -1,0 +1,17 @@
+.card.card-review.uk-card.uk-card-default {
+  width: 45vh;
+  border: none;
+  height: 40vh;
+}
+
+.review-title {
+  color: #914669;
+  font-family: 'roboto' bold;
+}
+
+.card.card-review.uk-card.uk-card-default img {
+border-top-left-radius: 2%;
+border-top-right-radius: 2%;
+height: 25vh;
+object-fit: cover;
+}
