@@ -11,7 +11,7 @@
   padding-left: 0.5vh;
   border: solid 1.5px #484848;
   border-radius: 2.5px;
-  bottom: 6vh;
+  bottom: 5.5vh;
   color: #484848;
   font-family: 'roboto' bold;
 }
@@ -23,21 +23,21 @@
   padding-left: 0.5vh;
   border: solid 1.5px #484848;
   border-radius: 2.5px;
-  bottom: 6vh;
+  bottom: 5.5vh;
   color: #484848;
   font-family: 'roboto' bold;
 }
 
 .chef-city {
   position: absolute;
-  bottom: 6.5vh;
+  bottom: 6vh;
   left: 12vh;
   color: #484848;
 }
 
 .chef-city-heart {
   position: absolute;
-  bottom: 6.5vh;
+  bottom: 6vh;
   left: 14vh;
   color: #484848;
 }
@@ -49,14 +49,14 @@
 
 .chef-note {
   position: absolute;
-  bottom: 6.5vh;
+  bottom: 6vh;
   color: #484848;
   right: 2vh;
 }
 
 .card.card-chef.uk-card.uk-card-default img {
-border-top-left-radius: 2%;
-border-top-right-radius: 2%;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
 height: 20vh;
 width: 40vh;
 object-fit: cover;
