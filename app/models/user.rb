@@ -5,5 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :offers
   has_many :meals
-  validates :address, presence: true
+  # validates :address, presence: true
 end
