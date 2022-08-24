@@ -1,10 +1,30 @@
 <%= render "offers/offer_details", title: "Congratulations for your booking" %>
   <div class="offer-booking border bg-light p-3">
+    <div class="border-bottom mb-2">
+      <h5>Booking details</h5>
+    </div>
     <p><u>Date:</u></p>
-    <p> <%= @booking.date %></p>
+    <p> <%= @booking.date.strftime("%d %B %Y at %H:%M") %></p>
     <p><u>Comments:</u></p>
     <p><%= @booking.comments %></p>
     <p><u>Number of guests:</u> <%= @booking.number_of_guests == 1 ? "#{@booking.number_of_guests} person" : "#{@booking.number_of_guests} people" %></p>
     <p><u>Status:</u> <%= @booking.status %></p>
+    <% if @booking.reviews.count == 0 %>
+      <div class="border-bottom mb-2 mt-5">
+        <h5>Add a review</h5>
+      </div>
+        <%= simple_form_for [@offer, @booking, @review] do |f| %>
+        <%= f.input :rating %>
+        <%= f.input :comment %>
+        <%= f.submit class: "btn btn-secondary" %>
+        <% end %>
+      <% else %>
+        <div class="border-bottom mb-2 mt-5">
+          <h5>Your review</h5>
+        </div>
+        <p><u>Rating:</u> <%= @booking.reviews.first.rating %></p>
+        <p><u>Comment:</u></p>
+        <p><%= @booking.reviews.first.comment %></p>
+    <% end %>
   </div>
 </div>
