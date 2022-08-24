@@ -4,13 +4,21 @@
 
 .card-meal {
   width: 35vh;
-  height: 42vh;
+  height: 45vh;
   border-radius: 3px;
   box-shadow: 0 0 5px rgb(230,230,230);
   padding: 30px;
   border: 1px solid rgb(230,230,230);
+  overflow: hidden;
 }
 
+@media only screen and (max-height: 800px) {
+  .card-meal {
+    height: 70vh;
+    opacity: 0.8;
+    right: 20px;
+  }
+}
 .card-meal.form-group {
   width: 250px;
   margin: -100px;
@@ -24,7 +32,7 @@
 .meal {
   width: 250px;
   border: none;
-  height: 375px;
+  height: 330px;
 }
 
 .cards-meal {
@@ -40,10 +48,9 @@
 }
 .meal h2 {
   position: absolute;
-  color: black;
   font-size: 22px;
-  bottom: 138px;
-  left: 10px;
+  bottom: 108px;
+  color:#484848;
 }
 
 .chef-rating {
@@ -51,22 +58,21 @@
   font-family: roboto thin;
   bottom: 12px;
   font-size: 13px;
-  left: 15px;
 }
 
 .meal h3 {
   font-size: 16px;
   position: absolute;
   bottom: 35px;
-  left: 15px;
+  color:#484848;
 }
 
 .meal h4 {
   font-size: 14px;
   font-family: roboto thin;
   position: absolute;
-  bottom: 175px;
-  left: 10px;
+  bottom: 136px;
+  color:#484848;
 }
 
 h2 {
@@ -77,6 +83,8 @@ h2 {
 
 .card.uk-card.uk-card-default.meal img {
   border-radius:2%;
+  height: 18vh;
+  object-fit: cover;
 }
 
 .card.uk-card.uk-card-default.meal h1 {
@@ -84,7 +92,6 @@ h2 {
   font-family: 'roboto';
   position: absolute;
   bottom: 60px;
-  left: 15px;
 }
 
 @media(max-width: 900px) {
