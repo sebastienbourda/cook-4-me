@@ -1,4 +1,4 @@
-<%= render "offer_details", title: @offer.title %>
+<%= render "offers/offer_details", title: @offer.title %>
   <div class="offer-booking border bg-light p-3">
     <%= simple_form_for [@offer, @booking] do |f| %>
     <%= f.input :date, html5: true %>
