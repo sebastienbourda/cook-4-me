@@ -35,7 +35,7 @@ class OffersController < ApplicationController
 
   def update
     @offer.update(offer_params)
-    if @offer.save?
+    if @offer.save
       redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
