@@ -1,1 +1,10 @@
-coucou new
+  <div class="border bg-light p-3">
+    <%= simple_form_for [@offer] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :category %>
+    <%= f.input :price_per_person %>
+    <%= f.input :photo, as: :file %>
+    <%= f.association :meals %>
+    <%= f.submit class: "btn btn-secondary" %>
+    <% end %>
+  </div>
