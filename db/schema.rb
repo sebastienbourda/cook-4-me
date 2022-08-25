@@ -10,9 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_24_102934) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_25_121950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "date"
@@ -32,12 +60,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_102934) do
     t.string "category"
     t.string "ingredients"
     t.bigint "user_id", null: false
-    t.bigint "offer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "photo_url"
-    t.index ["offer_id"], name: "index_meals_on_offer_id"
     t.index ["user_id"], name: "index_meals_on_user_id"
+  end
+
+  create_table "offer_meals", force: :cascade do |t|
+    t.bigint "offer_id", null: false
+    t.bigint "meal_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["meal_id"], name: "index_offer_meals_on_meal_id"
+    t.index ["offer_id"], name: "index_offer_meals_on_offer_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -73,14 +108,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_24_102934) do
     t.string "photo_url"
     t.boolean "chef"
     t.string "address"
+    t.text "chef_comment"
+    t.integer "radius"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "offers"
   add_foreign_key "bookings", "users"
-  add_foreign_key "meals", "offers"
   add_foreign_key "meals", "users"
+  add_foreign_key "offer_meals", "meals"
+  add_foreign_key "offer_meals", "offers"
   add_foreign_key "offers", "users"
   add_foreign_key "reviews", "bookings"
 end

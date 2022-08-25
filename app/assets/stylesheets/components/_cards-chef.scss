@@ -1,0 +1,63 @@
+.card.card-chef.uk-card.uk-card-default {
+  width: 40vh;
+  border: none;
+  height: 260px;
+}
+
+.chef-title {
+  position: absolute;
+  padding: 0.3vh;
+  padding-right: 0.5vh;
+  padding-left: 0.5vh;
+  border: solid 1.5px #484848;
+  border-radius: 2.5px;
+  bottom: 40px;
+  color: #484848;
+  font-family: 'roboto' bold;
+}
+
+.chef-heart {
+  position: absolute;
+  padding: 0.3vh;
+  padding-right: 0.5vh;
+  padding-left: 0.5vh;
+  border: solid 1.5px #484848;
+  border-radius: 2.5px;
+  bottom: 40px;
+  color: #484848;
+  font-family: 'roboto' bold;
+}
+
+.chef-city {
+  position: absolute;
+  bottom: 44px;
+  left: 120px;
+  color: #484848;
+}
+
+.chef-city-heart {
+  position: absolute;
+  bottom: 44px;
+  left: 140px;
+  color: #484848;
+}
+
+.chef-pricing {
+  position: absolute;
+  bottom: 0vh;
+}
+
+.chef-note {
+  position: absolute;
+  bottom: 44px;
+  color: #484848;
+  right: 10px;
+  width: 55px;
+}
+
+.card.card-chef.uk-card.uk-card-default img {
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+height: 11rem;
+object-fit: cover;
+}

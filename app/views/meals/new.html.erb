@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for @meal do |f| %>
+    <%= f.input :name %>
+    <%= f.input :category %>
+    <%= f.input :ingredients %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit %>
+  <% end %>
+</div>
