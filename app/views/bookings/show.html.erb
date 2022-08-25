@@ -16,6 +16,7 @@
         <%= simple_form_for [@offer, @booking, @review] do |f| %>
         <%= f.input :rating %>
         <%= f.input :comment %>
+        <%= f.input :photo, as: :file %>
         <%= f.submit class: "btn btn-secondary" %>
         <% end %>
       <% else %>
@@ -25,6 +26,7 @@
         <p><u>Rating:</u> <%= @booking.reviews.first.rating %></p>
         <p><u>Comment:</u></p>
         <p><%= @booking.reviews.first.comment %></p>
+        <%= cl_image_tag @booking.reviews.first.photo.key, height: 300, width: 400, crop: :fill %>
     <% end %>
   </div>
 </div>
