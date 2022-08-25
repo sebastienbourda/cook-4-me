@@ -87,6 +87,7 @@ all_meals_names = %w[soup beef brownie]
 
 all_offers.each do |offer|
   3.times do |i|
+    meal_offer = OfferMeal.new
     meal = Meal.new(
       name: all_meals_names[i].capitalize,
       category: Faker::Food.ethnic_category,
@@ -94,8 +95,10 @@ all_offers.each do |offer|
       photo_url: "#{url_meals}/#{all_meals_names[i]}.jpg"
     )
     meal.user = offer.user
-    meal.offer = offer
     meal.save!
+    meal_offer.offer = offer
+    meal_offer.meal = meal
+    meal_offer.save!
     puts "    --> #{meal.name} created and added to #{offer.title}"
   end
 
