@@ -93,7 +93,7 @@ all_offers.each do |offer|
     meal_offer = OfferMeal.new
     meal = Meal.new(
       name: all_meals_names[i].capitalize,
-      category: Faker::Food.ethnic_category,
+      category: Meal::CATEGORIES.sample,
       ingredients: [Faker::Food.ingredient, Faker::Food.vegetables, Faker::Food.fruits, Faker::Food.spice],
       photo_url: "#{url_meals}/#{all_meals_names[i]}.jpg"
     )
