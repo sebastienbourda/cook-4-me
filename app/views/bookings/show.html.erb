@@ -8,6 +8,7 @@
     <p><u>Comments:</u></p>
     <p><%= @booking.comments %></p>
     <p><u>Number of guests:</u> <%= @booking.number_of_guests == 1 ? "#{@booking.number_of_guests} person" : "#{@booking.number_of_guests} people" %></p>
+    <p><u>Total price:</u> <%= @total_price %>€</p>
     <p><u>Status:</u> <%= @booking.status %></p>
     <% if @booking.reviews.count == 0 %>
       <div class="border-bottom mb-2 mt-5">

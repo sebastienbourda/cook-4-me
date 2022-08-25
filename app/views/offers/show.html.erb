@@ -4,6 +4,7 @@
     <%= f.input :date, html5: true %>
     <%= f.input :comments %>
     <%= f.input :number_of_guests %>
+    <p>Price per person: <%= @offer.price_per_person %>€</p>
     <%= f.submit class: "btn btn-secondary" %>
     <% end %>
   </div>
