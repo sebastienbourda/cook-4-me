@@ -6,7 +6,7 @@
 
 <div class="container-fluid mt-4 position-relative">
   <div class="offer-details bg-light rounded border">
-    <div class="banner text-white rounded w-100 p-5 d-flex align-items-end justify-content-center" style="background-image: linear-gradient(rgba(10,10,10,0.2), rgba(0,0,0,0.2)), url(<%= image_path("users/chefs/" + @offer.user.first_name.downcase) %>); background-size: contain; background-repeat: no-repeat;">
+    <div class="banner text-white rounded w-100 p-5 d-flex align-items-end justify-content-center" style="background-image: linear-gradient(rgba(10,10,10,0.2), rgba(0,0,0,0.2)), url(<%= image_path("users/" + @offer.user.first_name.downcase) %>); background-size: contain; background-repeat: no-repeat;">
       <h3>Your chef: <%= @offer.user.first_name %></h3>
     </div>
     <% @offer.meals.each do |meal| %>
