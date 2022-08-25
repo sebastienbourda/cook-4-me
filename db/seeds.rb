@@ -108,4 +108,12 @@ all_offers.each do |offer|
   booking.offer = offer
   booking.user = User.find_by(first_name: %w[austin brooke jack stefan].sample)
   booking.save!
+  puts "    --> Booking created and added to #{offer.title}"
+  review = Review.new(
+    rating: rand(1..5),
+    comment: Faker::Restaurant.review
+  )
+  review.booking = booking
+  review.save!
+  puts "       --> Review added to this booking"
 end
