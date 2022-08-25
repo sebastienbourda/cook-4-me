@@ -1,0 +1,7 @@
+<div class="container">
+  <%= simple_form_for @user, url: chef_path(@user) do |f| %>
+    <%= f.input :chef_comment %>
+    <%= f.input :radius %>
+    <%= f.submit %>
+  <% end %>
+</div>
