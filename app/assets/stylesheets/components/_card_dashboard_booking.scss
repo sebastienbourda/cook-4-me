@@ -1,0 +1,87 @@
+.card-dashboard-booking {
+  //  card design line --> dropdown
+  color: #fff;
+
+  h6 {
+    margin-bottom: 4px!important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  .card-dashboard {
+    padding: 36px;
+    background: linear-gradient(119.15deg, #20584B -13.54%, #292F3C 118.09%);
+    box-shadow: 9.71163px 11.654px 77.693px rgba(84, 135, 183, 0.08);
+    border-radius: 10px;
+    position: relative;
+  }
+
+  .full-width-flex {
+    width: 100%;
+    display: flex;
+    margin-bottom: 32px;
+  }
+
+  .justify-between {
+    justify-content: space-between;
+  }
+
+  .header {
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    .price {
+      background: #582020;
+      border-radius: 5px;
+      padding: 8px;
+    }
+  }
+
+  .element {
+    width: 100%;
+  }
+
+  .review {
+    flex-direction: column;
+    p {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 36px;
+      line-height: 42px;
+    }
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 64px;
+    .btn-booking-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 63px;
+      gap: 10px;
+      border-radius: 5px;
+    }
+    .green {
+      background: #20584B;
+    }
+    .red {
+      background: #582A20;
+    }
+  }
+
+  button, .btn-bookings {
+    background: #38695E;
+    border: 1px solid #FAFAFA;
+    border-radius: 5px;
+    padding: 16px;
+    color: white;
+  }
+
+
+}
