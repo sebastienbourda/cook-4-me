@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :meals, except: %i[index show]
   resources :offers do
+    patch "/bookings/:id", to: "bookings#accept"
     resources :bookings, except: %i[index new destroy] do
       resources :reviews, only: %i[show create]
     end
