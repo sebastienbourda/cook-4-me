@@ -1,10 +1,11 @@
 class OffersController < ApplicationController
+  before_action :find_id, only: [:show, :edit, :update, :destroy]
+
   def index
     @offers = Offer.all
   end
 
   def show
-    @offer = Offer.find(params[:id])
     @booking = Booking.new
   end
 
@@ -13,13 +14,7 @@ class OffersController < ApplicationController
   end
 
   def create
-    # @offer_meal = OfferMeal.new
-    # @offer = Offer.new(title:            offer_params[:title],
-    #                    category:         offer_params[:category],
-    #                    price_per_person: offer_params[:price_per_person],
-    #                    user:             current_user)
     @offer = Offer.new(offer_params.except(:meal_ids).merge(user: current_user))
-    # @offer << offer_params[5]
     if @offer.save
       meals = offer_params[:meal_ids]
       meals.delete_at(0)
@@ -39,9 +34,8 @@ class OffersController < ApplicationController
   end
 
   def update
-    offer = Offer.find(params[:id])
-    offer.update(offer_params)
-    if offer.save?
+    @offer.update(offer_params)
+    if @offer.save?
       redirect_to dashboard_path
     else
       render :new, status: :unprocessable_entity
@@ -49,7 +43,6 @@ class OffersController < ApplicationController
   end
 
   def destroy
-    @offer = Offer.find(params[:id])
     @offer.destroy
     redirect_to dashboard_path, status: :see_other
   end
@@ -58,5 +51,9 @@ class OffersController < ApplicationController
 
   def offer_params
     params.require(:offer).permit(:title, :category, :price_per_person, :photo, meal_ids: [])
+  end
+
+  def find_id
+    @offer = Offer.find(params[:id])
   end
 end
