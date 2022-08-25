@@ -58,7 +58,7 @@ all_menus_names = %w[ beef brunch chicken chickpea\ bowl fish for\ two
     last_name: 'aniel',
     email: "#{first_names_chefs[i]}@cook4me.com",
     password: "secret",
-    photo_url: "#{url_users}/chefs/#{first_names_chefs[i]}.jpg",
+    photo_url: "#{url_users}/#{first_names_chefs[i]}.jpg",
     chef: true,
     address: Faker::Address.full_address
   )
