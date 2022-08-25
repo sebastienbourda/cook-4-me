@@ -27,7 +27,7 @@
         <p><u>Rating:</u> <%= @booking.reviews.first.rating %></p>
         <p><u>Comment:</u></p>
         <p><%= @booking.reviews.first.comment %></p>
-        <%= cl_image_tag @booking.reviews.first.photo.key, height: 300, width: 400, crop: :fill %>
+        <%= cl_image_tag @booking.reviews.first.photo.key, class: 'cl-image-postreview', crop: :fill %>
     <% end %>
   </div>
 </div>
