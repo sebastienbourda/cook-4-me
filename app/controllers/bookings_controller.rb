@@ -4,6 +4,7 @@ class BookingsController < ApplicationController
   def show
     @booking = Booking.find(params[:id])
     @review = Review.new
+    @total_price = @booking.number_of_guests * @offer.price_per_person.to_i
   end
 
   def create
