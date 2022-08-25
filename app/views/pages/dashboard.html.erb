@@ -28,7 +28,7 @@
                   <%= image_tag("/assets/offers/#{offer.title.downcase}.jpg")%>
                   <%#= cl_image_tag (image_dans_l’instance), options %>
                   <div class="offers-btn">
-                    <%= link_to edit_offer_path(:id), class:"btn" do %>
+                    <%= link_to edit_offer_path(offer), class:"btn" do %>
                       Update
                     <% end %>
                     <%= link_to offer_path(offer),
