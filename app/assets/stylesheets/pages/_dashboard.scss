@@ -1,0 +1,47 @@
+@import "components/card-dashboard";
+@import "components/card_dashboard_booking";
+
+#dashboard {
+  background-color: #FAFAFA;
+  min-height: 100vh;
+  h1 {
+    font-weight: 700;
+    font-size: 29.1349px;
+    line-height: 34px;
+    color: #20584B;
+  }
+  h5 {
+    margin: 10px 0!important;
+  }
+
+  //  info line --> dropdown
+  .info-row {
+    color: #fff;
+    border-radius: 10px;
+    margin: 20px 0;
+    background-color: #20584B;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+    gap: 103.91px;
+    .container-fluid {
+      padding: 0;
+    }
+    button {
+      color: #FFF;
+      background: none;
+      border: none;
+      width: max-content;
+    }
+  }
+
+  button {
+    position: relative;
+    font-family: 'roboto';
+    bottom: 0;
+  }
+
+}
