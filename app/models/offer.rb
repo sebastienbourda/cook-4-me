@@ -3,6 +3,10 @@ class Offer < ApplicationRecord
   has_many :meals
   has_one_attached :photo
 
+  has_many :bookings
+  has_many :reviews, through: :bookings
+
+
   validates :title, presence: true
   validates :category, presence: true
   validates :price_per_person, presence: true
