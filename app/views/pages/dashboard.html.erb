@@ -108,10 +108,30 @@
                 <div class="header full-width-flex">
                   <h4>Menu: <%= Offer.find(booking.offer_id).title %></h4>
                   <div class="right">
-                    <div>
+                    <% case booking.status %>
+                    <% when "pending" %>
+                      <div class="orange">
+                        <span>
+                          <%= booking.status %>
+                        </span>
+                      </div>
+                    <% when "confirm" %>
+                      <div class="green">
+                        <span>
+                          <%= booking.status %>
+                        </span>
+                      </div>
+                    <% when "rejected" %>
+                      <div class="red">
+                        <span>
+                          <%= booking.status %>
+                        </span>
+                      </div>
+                    <% end %>
+                    <div class="red">
                       <span> <%= booking.number_of_guests %> guests</span>
                     </div>
-                    <div>
+                    <div class="red">
                       <span><%= booking.number_of_guests * Offer.find(booking.offer_id).price_per_person.to_i %> €</span>
                     </div>
                   </div>
@@ -132,18 +152,22 @@
                 <div class="full-width-flex justify-between">
                   <div class="element">
                     <h6>Comment</h6>
-                    <div class="btn-bookings">We are hungry !</div>
+                    <div class="btn-bookings"><%= booking.comments %></div>
                   </div>
                 </div>
 
                 <div class="full-width-flex review">
                   <h6>Review:</h6>
-                  <p>“That was so good !”</p>
+                  <p>" <%= @reviews.find_by(booking_id: booking.id).comment %> "</p>
                 </div>
 
                 <div class="footer">
-                  <button class="btn-booking-footer element green">Accept</button>
-                  <button class="btn-booking-footer element red">Reject</button>
+                  <%= link_to "", class:"btn-booking-footer element green" do %>
+                    Accept
+                  <% end %>
+                  <%= link_to "", class:"btn-booking-footer element red" do %>
+                    Reject
+                  <% end %>
                 </div>
               </div>
             </div>

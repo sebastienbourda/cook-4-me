@@ -7,5 +7,6 @@ class PagesController < ApplicationController
     @offers = Offer.where(user: current_user).all
     @meals = Meal.where(user: current_user).all
     @bookings = Booking.where(user: current_user).all
+    @reviews = Review.all
   end
 end

@@ -1,6 +1,7 @@
 .card-dashboard-booking {
   //  card design line --> dropdown
   color: #fff;
+  margin-bottom: 1.5rem;
 
   h6 {
     margin-bottom: 4px!important;
@@ -15,6 +16,10 @@
     box-shadow: 9.71163px 11.654px 77.693px rgba(84, 135, 183, 0.08);
     border-radius: 10px;
     position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .full-width-flex {
@@ -35,10 +40,19 @@
       display: flex;
       div {
         // border: 1px solid #fff;
-        background: #582020;
+        // background: #582020;
         border-radius: 5px;
         padding: 8px;
         margin-left: 8px;
+      }
+      .red{
+        background: #582020;
+      }
+      .green{
+        background: green;
+      }
+      .orange{
+        background: orange
       }
     }
   }
@@ -51,7 +65,7 @@
     flex-direction: column;
     p {
       font-style: normal;
-      font-weight: 700;
+      font-weight: 300;
       font-size: 36px;
       line-height: 42px;
     }
