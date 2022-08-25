@@ -51,7 +51,7 @@ url_offers = '/app/assets/images/offers'
 all_menus_names = %w[ beef brunch chicken chickpea\ bowl fish for\ two
                       libanese pasta pizza simple\ bowl sushis thai veggy\ brunch veggy ]
 
-# Create 4 "Chef" users
+# Create 4 "Chef" users and offers for each
 4.times do |i|
   user = User.new(
     first_name: first_names_chefs[i].capitalize,
@@ -79,30 +79,7 @@ end
 
 puts "> LOG WITH: austin@cook4me.com   / password: secret"
 
-# =============== Create Offers for Chef =====================
-# url_offers = '/app/assets/images/offers'
-
-# all_menus_names = %w[ beef brunch chicken chickpea\ bowl fish for\ two
-#                       libanese pasta pizza simple\ bowl sushis thai veggy\ brunch veggy ]
-
-# puts "> Create offers for Chefs"
-# all_chefs = User.where(chef: true)
-
-# all_chefs.each_with_index do |chef, index|
-#   offer = Offer.new(
-#     title: all_menus_names[index],
-#     category: Faker::Food.ethnic_category,
-#     price_per_person: rand(10..15),
-#     photo_url: "#{url_offers}/#{all_menus_names[index]}.jpg"
-#   )
-#   offer.user = chef
-#   offer.save!
-#   puts "  --> #{offer.title} created"
-# end
-
-# puts "> LOG WITH: austin@cook4me.com   / password: secret"
-
-# =============== Create Meals for Chef =====================
+# Create meals and bookings for offers
 
 all_offers = Offer.all
 url_meals = '/app/assets/images/meals'
@@ -121,4 +98,14 @@ all_offers.each do |offer|
     meal.save!
     puts "    --> #{meal.name} created and added to #{offer.title}"
   end
+
+  booking = Booking.new(
+    date: Faker::Date.between(from: Date.today, to: '2022-12-25'),
+    comments: "On va avoir très faim",
+    number_of_guests: rand(2..10),
+    status: 0
+  )
+  booking.offer = offer
+  booking.user = User.find_by(first_name: %w[austin brooke jack stefan].sample)
+  booking.save!
 end
