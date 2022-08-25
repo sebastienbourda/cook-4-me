@@ -4,6 +4,8 @@ class PagesController < ApplicationController
   end
 
   def dashboard
-
+    @offers = Offer.where(user: current_user).all
+    @meals = Meal.where(user: current_user).all
+    @bookings = Booking.where(user: current_user).all
   end
 end
