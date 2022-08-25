@@ -1,6 +1,7 @@
 class Offer < ApplicationRecord
   belongs_to :user
-  has_many :meals
+  has_many :offer_meals
+  has_many :meals, through: :offer_meals
   has_one_attached :photo
 
   has_many :bookings
