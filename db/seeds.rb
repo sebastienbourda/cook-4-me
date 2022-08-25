@@ -8,6 +8,9 @@
 require 'faker'
 
 # ============= Delete DB =======================
+puts "> Delete Offer_meal"
+OfferMeal.destroy_all
+puts "  --> Offer_meal deleted"
 puts "> Delete Reviews"
 Review.destroy_all
 puts "  --> Review deleted"
