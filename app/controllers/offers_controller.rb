@@ -3,6 +3,8 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
+    @bookings = Booking.all
+    @reviews = Review.all
   end
 
   def show
