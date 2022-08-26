@@ -34,12 +34,13 @@
               </div>
               <div class="right-card-body">
                 <% @reviews = Review.where(booking_id: Booking.find_by(offer_id: offer.id)) %>
-                <% @reviews.each do |review| %>
-                  <% @average = 0  %>
-                  <% @average += review.rating  %>
+                <% if @reviews.length > 0 %>
+                  <% @reviews.each do |review| %>
+                    <% @average = 0  %>
+                    <% @average += review.rating  %>
+                  <% end %>
+                  <p> <%= (@average / @reviews.length) %> <i class="fa-solid fa-star"></i></p>
                 <% end %>
-                <p> <%= (@average / @reviews.length) %> <i class="fa-solid fa-star"></i></p>
-
               </div>
             </div>
           </div>
