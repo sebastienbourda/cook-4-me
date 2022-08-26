@@ -38,9 +38,11 @@
     color: #fff;
     .right {
       display: flex;
+      .button {
+        background-color: #FAFAFA;
+        color: #0b211c;
+      }
       div {
-        // border: 1px solid #fff;
-        // background: #582020;
         border-radius: 5px;
         padding: 8px;
         margin-left: 8px;
@@ -66,7 +68,7 @@
     p {
       font-style: normal;
       font-weight: 300;
-      font-size: 36px;
+      font-size: 24px;
       line-height: 42px;
     }
   }
@@ -85,29 +87,28 @@
       align-items: center;
       padding: 10px 63px;
       gap: 10px;
-      border-radius: 5px 5px 0 0;
+      border-radius: 2px;
       width: 200px;
-    }
-    .green {
-      background: #20584B;
-    }
-    .red {
-      background: #582A20;
+      background-color: #FAFAFA;
+      font-weight: bold;
     }
   }
 
   button, .btn-bookings {
-    background: #38695E;
-    // border: 1px solid #FAFAFA;
-    box-shadow: 0 3px 0 #0b211c;
+    background: #fafafa;
+    border-bottom: 3px solid #FAFAFA;
+    border-radius: 2px;
     border: none;
-    border-radius: 5px 5px 0 0;
     padding: 16px;
-    color: white;
+    color: #0b211c;
   }
 
-  button:hover {
-    box-shadow: 0 3px 0 #759991;
+  .accept:hover {
+    background-color: #d5f4ed;
+  }
+
+  .reject:hover {
+    background-color: #f1d8de;
   }
 
 }
