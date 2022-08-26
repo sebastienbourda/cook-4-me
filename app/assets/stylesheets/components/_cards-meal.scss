@@ -3,7 +3,7 @@
 }
 
 .card-meal {
-  width: 28rem;
+  width: 29rem;
   height: 16rem;
   box-shadow: 0 0 40px rgb(230,230,230);
   padding: 30px;
@@ -79,6 +79,7 @@ h2 {
   border-radius:2%;
   height: 10rem;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .card.uk-card.uk-card-default.meal h1 {
