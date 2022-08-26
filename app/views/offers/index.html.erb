@@ -18,7 +18,13 @@
                 <p class="card-text">From <%= offer.price_per_person %>€/person</p>
               </div>
               <div class="right-card-body">
-                <p>3.8 <i class="fa-solid fa-star"></i></p>
+                <% @reviews = Review.where(booking_id: Booking.find_by(offer_id: offer.id)) %>
+                <% @reviews.each do |review| %>
+                  <% @average = 0  %>
+                  <% @average += review.rating  %>
+                <% end %>
+                <p> <%= (@average / @reviews.length) %> <i class="fa-solid fa-star"></i></p>
+
               </div>
             </div>
           </div>
