@@ -9,13 +9,13 @@
  </div>
 </div>
 
-<div class="container-fluid mt-4 position-relative">
-  <div class="offer-details bg-light rounded border">
-    <div class="banner text-white rounded w-100 p-5 d-flex align-items-end justify-content-center" style="background-image: linear-gradient(rgba(10,10,10,0.2), rgba(0,0,0,0.2)), url(<%= image_path("users/" + @offer.user.first_name.downcase) %>); background-size: contain; background-repeat: no-repeat;">
+<div id="show-offer" class="container-fluid px-5 position-relative">
+  <div class="offer-details bg-light rounded">
+    <div class="banner text-white rounded w-100 p-5 d-flex align-items-center justify-content-between" style="background-image: linear-gradient(rgba(10,10,10,0.2), rgba(0,0,0,0.2)), url(<%= image_path("users/" + @offer.user.first_name.downcase) %>); background-size: contain; background-repeat: no-repeat;">
       <h3>Your chef: <%= @offer.user.first_name %></h3>
     </div>
     <% @offer.meals.each do |meal| %>
-      <div class="d-flex mt-3 border-bottom">
+      <div class="d-flex py-4 px-3 border-bottom">
         <div>
           <% if meal.photo.present? %>
             <%= cl_image_tag meal.photo.key %>
@@ -25,6 +25,7 @@
         </div>
         <div class ="ms-3">
           <h4><%= meal.name %></h4>
+          <h6>Ingredients:</h6>
           <p><%= meal.ingredients %></p>
         </div>
       </div>

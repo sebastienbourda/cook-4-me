@@ -1,11 +1,11 @@
 <%= render "offers/offer_details", title: @offer.title %>
-  <div class="offer-booking border bg-light p-3">
+  <div class="offer-booking bg-light p-3">
     <%= simple_form_for [@offer, @booking] do |f| %>
     <%= f.input :date, html5: true %>
     <%= f.input :comments %>
     <%= f.input :number_of_guests %>
     <p>Price per person: <%= @offer.price_per_person %>€</p>
-    <%= f.submit class: "btn btn-secondary" %>
+    <%= f.submit class: "btn" %>
     <% end %>
   </div>
 </div>
