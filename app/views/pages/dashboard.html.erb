@@ -158,7 +158,7 @@
                   </div>
                 </div>
 
-                <% if booking.reviews > 0 %>
+                <% if booking.reviews.length > 0 %>
                   <div class="full-width-flex review">
                     <h6>Review:</h6>
                     <p>" <%= @reviews.find_by(booking_id: booking.id).comment %> "</p>
