@@ -6,7 +6,7 @@
         <h2>Discover offers from our chef for unique experiences</h1>
         <br>
         <p>What kind of food would you like?</p>
-        <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+        <%= form_with url: offers_path, method: :get, class: "d-flex search-bar-home" do %>
           <%= text_field_tag :query,
               params[:query],
               class: "form-control",
