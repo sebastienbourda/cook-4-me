@@ -18,3 +18,29 @@
   position: absolute;
   bottom: 20%;
 }
+
+.search-bar-offer {
+  margin-top: 40px;
+  border: 1px solid #20584B;
+  border-radius: 3px;
+  margin-bottom: 40px;
+  input{
+    border:none;
+  }
+  input.btn{
+    border-radius: 0 2px 2px 0;
+    background-color: #20584B;
+  }
+}
+
+.search-bar-home {
+  border: 1px solid #20584B;
+  border-radius: 3px;
+  input{
+    border:none;
+  }
+  input.btn{
+    border-radius: 0 2px 2px 0;
+    background-color: #20584B;
+  }
+}

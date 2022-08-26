@@ -1,16 +1,38 @@
-.offer-details{
-  position: absolute;
-  top: -50px;
-  left: 5rem;
-  width: 66vw;
-  img{
-    width: 200px;
+#show-offer {
+  display: flex;
+  justify-content: space-between;
+  background: #f8f9fa;
+  h3 {
+    text-shadow: 0 2px 0 #20584b;
   }
-}
+  .offer-details{
+    // position: absolute;
+    // top: -50px;
+    // left: 5rem;
+    transform: translateY(-50px);
+    width: 66vw;
+    position: relative;
+    img{
+      width: 200px;
+    }
+  }
 
-.offer-booking{
-  width: 20vw;
-  position: absolute;
-  top: -50px;
-  right: 5rem;
+  .offer-booking{
+    width: 20vw;
+    transform: translate(0, -50px);
+    height: 100%;
+    border: 1px solid #20584b;
+  }
+  input, textarea {
+    border: 1px solid #20584b;
+  }
+  .btn {
+    background: #20584b;
+    filter: blur(10%);
+    color: #fff;
+  }
+
+  input:hover {
+    filter: blur(0%);
+  }
 }

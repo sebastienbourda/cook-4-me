@@ -116,14 +116,19 @@
                 <div class="header full-width-flex">
                   <h4>Menu: <%= Offer.find(booking.offer_id).title %></h4>
                   <div class="right">
-                  <div data-accept-button-target="status">
-                    <%= render "booking_status", booking: booking %>
-                  </div>
-                    <div class="red">
-                      <span> <%= booking.number_of_guests %> guests</span>
+
+                    <div data-accept-button-target="status">
+                      <%= render "booking_status", booking: booking %>
                     </div>
-                    <div class="red">
-                      <span><%= booking.number_of_guests * Offer.find(booking.offer_id).price_per_person.to_i %> €</span>
+
+
+                    <div class="button">
+                      <span>Guests</span>
+                      <h5><%= booking.number_of_guests %></h5>
+                    </div>
+                    <div class="button">
+                      <span>Amount</span>
+                      <h5><%= booking.number_of_guests * Offer.find(booking.offer_id).price_per_person.to_i %> €</h5>
                     </div>
                   </div>
                 </div>
@@ -131,19 +136,25 @@
                 <div class="full-width-flex justify-between">
                   <div>
                     <h6>Date</h6>
-                    <div class="btn-bookings"> <%= booking.date.strftime("%m/%d/%Y") %> </div>
+                    <div class="btn-bookings">
+                      <h5><%= booking.date.strftime("%m/%d/%Y") %></h5>
+                    </div>
                   </div>
 
                   <div>
                     <h6>Address</h6>
-                    <div class="btn-bookings"><%= booking.user.address %></div>
+                    <div class="btn-bookings">
+                      <h5><%= booking.user.address %></h5>
+                    </div>
                   </div>
                 </div>
 
                 <div class="full-width-flex justify-between">
                   <div class="element">
                     <h6>Comment</h6>
-                    <div class="btn-bookings"><%= booking.comments %></div>
+                    <div class="btn-bookings">
+                      <h5><%= booking.comments %></h5>
+                    </div>
                   </div>
                 </div>
 
@@ -152,8 +163,10 @@
                   <p>" <%= @reviews.find_by(booking_id: booking.id).comment %> "</p>
                 </div>
                 <% if current_user.chef %>
+
                   <div class="footer" data-accept-button-target="buttons">
                     <%= render "accept_reject_buttons", booking: booking %>
+
                   </div>
                 <% end %>
               </div>

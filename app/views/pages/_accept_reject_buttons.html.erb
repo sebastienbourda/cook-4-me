@@ -1,13 +1,13 @@
 <% if booking.status == "pending" %>
-  <%= simple_form_for booking, url: booking_accept_path(booking), method: :post, class:"btn-booking-footer element green", data: { accept_button_target: "accept", action: "submit->accept-button#send" } do |f| %>
+  <%= simple_form_for booking, url: booking_accept_path(booking), method: :post, class:"btn-booking-footer accept", data: { accept_button_target: "accept", action: "submit->accept-button#send" } do |f| %>
     <%= f.button :submit, "Accept" %>
   <% end %>
 <% else %>
-  <div class="btn-booking-footer element"></div>
+  <div class="btn-booking-footer bg-transparent"></div>
 <% end %>
 
 <% if booking.status == "pending" %>
-  <%= button_to "Reject", booking_reject_path(booking), method: :post, class:"btn-booking-footer element red" %>
+  <%= button_to "Reject", booking_reject_path(booking), method: :post, class:"btn-booking-footer reject" %>
 <% elsif booking.status == "confirmed" %>
-  <%= button_to "Cancel", booking_reject_path(booking), method: :post, class:"btn-booking-footer element red" %>
+  <%= button_to "Cancel", booking_reject_path(booking), method: :post, class:"btn-booking-footer cancel" %>
 <% end %>
