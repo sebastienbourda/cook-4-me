@@ -136,10 +136,10 @@
                         </span>
                       </div>
                     <% end %>
-                    <div class="red">
+                    <div class="button">
                       <span> <%= booking.number_of_guests %> guests</span>
                     </div>
-                    <div class="red">
+                    <div class="button">
                       <span><%= booking.number_of_guests * Offer.find(booking.offer_id).price_per_person.to_i %> €</span>
                     </div>
                   </div>
@@ -171,12 +171,12 @@
                 <% if current_user.chef %>
                   <div class="footer">
                   <% if booking.status == "pending" %>
-                    <%= button_to "Accept", booking_accept_path(booking), method: :post, class:"btn-booking-footer element green" %>
+                    <%= button_to "Accept", booking_accept_path(booking), method: :post, class:"btn-booking-footer accept" %>
                   <% end %>
                   <% if booking.status == "pending" %>
-                    <%= button_to "Reject", booking_reject_path(booking), method: :post, class:"btn-booking-footer element red" %>
+                    <%= button_to "Reject", booking_reject_path(booking), method: :post, class:"btn-booking-footer reject" %>
                   <% elsif booking.status == "confirmed" %>
-                    <%= button_to "Cancel", booking_reject_path(booking), method: :post, class:"btn-booking-footer element red" %>
+                    <%= button_to "Cancel", booking_reject_path(booking), method: :post, class:"btn-booking-footer cancel" %>
                   <% end %>
                   </div>
                 <% end %>
