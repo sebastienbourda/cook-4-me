@@ -5,9 +5,15 @@ Rails.application.routes.draw do
   resources :meals, except: %i[index show]
   resources :offers do
     resources :bookings, except: %i[index new destroy] do
+
       resources :reviews, only: %i[show create]
     end
   end
   get "/dashboard", to: "pages#dashboard"
   resources :chefs, only: %i[edit update]
+  resources :bookings, only: :index do
+    post "/accept", to: "bookings#accept"
+    post "/reject", to: "bookings#reject"
+  end
+  # patch "/dashboard", to: "bookings#accept", as: :accept
 end
