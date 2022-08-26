@@ -5,121 +5,89 @@
     <p class="subtitle">Manage your informations here!</p>
   </header>
 
-  <div id="offers" class="display-card">
-    <div class="info-row">
-      <h4>Menus</h4>
-      <div class="info-row-right">
-        <button>Add <i class="fa-solid fa-circle-plus"></i></i></button>
-        <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseOffers" aria-expanded="false" aria-controls="collapseOffers">
-          <i class="fa-solid fa-chevron-down"></i>
-        </button>
-      </div>
-    </div>
-    <div class="collapse" id="collapseOffers">
-      <div class="container-fluid py-3">
-        <div class="row">
-          <div class="card-dashboard col-2">
-            <div class="card-dashboard-image">
-              <%= image_tag("offers/beef.jpg")%>
-              <div class="offers-btn">
-                <button class="btn">Update</button>
-                <button class="btn">Delete</button>
-              </div>
-            </div>
-            <h5>Beef menu</h5>
-          </div>
-          <div class="card-dashboard col-2">
-            <div class="card-dashboard-image">
-              <%= image_tag("offers/beef.jpg")%>
-              <div class="offers-btn">
-                <button class="btn">Update</button>
-                <button class="btn">Delete</button>
-              </div>
-            </div>
-            <h5>Beef menu</h5>
-          </div>
-          <div class="card-dashboard col-2">
-            <div class="card-dashboard-image">
-              <%= image_tag("offers/beef.jpg")%>
-              <div class="offers-btn">
-                <button class="btn">Update</button>
-                <button class="btn">Delete</button>
-              </div>
-            </div>
-            <h5>Beef menu</h5>
-          </div>
-          <div class="card-dashboard col-2">
-            <div class="card-dashboard-image">
-              <%= image_tag("offers/beef.jpg")%>
-              <div class="offers-btn">
-                <button class="btn">Update</button>
-                <button class="btn">Delete</button>
-              </div>
-            </div>
-            <h5>Beef menu</h5>
-          </div>
+  <% if current_user.chef %>
+    <div id="offers" class="display-card">
+      <div class="info-row">
+        <h4>Menus</h4>
+        <div class="info-row-right">
+          <%= link_to "offers/new" do %>
+            Add <i class="fa-solid fa-circle-plus"></i>
+          <% end %>
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#collapseOffers" aria-expanded="false" aria-controls="collapseOffers">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
         </div>
       </div>
-    </div>
-  </div>
+      <div class="collapse" id="collapseOffers">
+        <div class="container-fluid py-3">
+          <div class="row">
 
-  <div id="meals" class="display-card">
-    <div class="info-row">
-      <h4>Meals</h4>
-      <div class="info-row-right">
-        <button>Add <i class="fa-solid fa-circle-plus"></i></i></button>
-        <button type="button" data-bs-toggle="collapse" data-bs-target="#collapsemeals" aria-expanded="false" aria-controls="collapsemeals">
-          <i class="fa-solid fa-chevron-down"></i>
-        </button>
-      </div>
-    </div>
-    <div class="collapse" id="collapsemeals">
-      <div class="container-fluid py-3">
-        <div class="row">
-          <div class="card-dashboard col-2">
-            <div class="card-dashboard-image">
-              <%= image_tag("offers/beef.jpg")%>
-              <div class="offers-btn">
-                <button class="btn">Update</button>
-                <button class="btn">Delete</button>
+            <% @offers.each do |offer| %>
+              <div class="card-dashboard col-2">
+                <div class="card-dashboard-image">
+                  <%= image_tag("/assets/offers/#{offer.title.downcase}.jpg")%>
+                  <%#= cl_image_tag (image_dans_l’instance), options %>
+                  <div class="offers-btn">
+                    <%= link_to edit_offer_path(offer), class:"btn" do %>
+                      Update
+                    <% end %>
+                    <%= link_to offer_path(offer),
+                        class:"btn",
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                      Delete
+                    <% end %>
+                  </div>
+                </div>
+                <h5>Beef menu</h5>
               </div>
-            </div>
-            <h5>Beef menu</h5>
-          </div>
-          <div class="card-dashboard col-2">
-            <div class="card-dashboard-image">
-              <%= image_tag("offers/beef.jpg")%>
-              <div class="offers-btn">
-                <button class="btn">Update</button>
-                <button class="btn">Delete</button>
-              </div>
-            </div>
-            <h5>Beef menu</h5>
-          </div>
-          <div class="card-dashboard col-2">
-            <div class="card-dashboard-image">
-              <%= image_tag("offers/beef.jpg")%>
-              <div class="offers-btn">
-                <button class="btn">Update</button>
-                <button class="btn">Delete</button>
-              </div>
-            </div>
-            <h5>Beef menu</h5>
-          </div>
-          <div class="card-dashboard col-2">
-            <div class="card-dashboard-image">
-              <%= image_tag("offers/beef.jpg")%>
-              <div class="offers-btn">
-                <button class="btn">Update</button>
-                <button class="btn">Delete</button>
-              </div>
-            </div>
-            <h5>Beef menu</h5>
+            <% end %>
+
           </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <div id="meals" class="display-card">
+      <div class="info-row">
+        <h4>Meals</h4>
+        <div class="info-row-right">
+          <%= link_to "meals/new" do %>
+            Add <i class="fa-solid fa-circle-plus"></i>
+          <% end %>
+          <button type="button" data-bs-toggle="collapse" data-bs-target="#collapsemeals" aria-expanded="false" aria-controls="collapsemeals">
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
+      <div class="collapse" id="collapsemeals">
+        <div class="container-fluid py-3">
+          <div class="row">
+
+            <% @meals.each do |meal| %>
+              <div class="card-dashboard col-2">
+                <div class="card-dashboard-image">
+                  <%= image_tag("/assets/meals/#{meal.name.downcase}.jpg") %>
+                  <%#= cl_image_tag (image_dans_l’instance), options %>
+                  <div class="offers-btn">
+                    <%= link_to edit_meal_path(meal), class:"btn" do %>
+                      Update
+                    <% end %>
+                    <%= link_to meal_path(meal),
+                        class:"btn",
+                        data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+                      Delete
+                    <% end %>
+                  </div>
+                </div>
+                <h5>Beef menu</h5>
+              </div>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
   <div id="bookings">
     <div class="info-row">
@@ -134,90 +102,76 @@
       <div class="container-fluid py-3">
         <div class="row">
 
-          <div class="card-dashboard-booking col-6">
-            <div class="card-dashboard">
-              <div class="header full-width-flex">
-                <h4>Menu: Brunch for Two</h4>
-                <div class="right">
-                  <div>
-                    <span>4 guests</span>
+          <% @bookings.each do |booking| %>
+            <div class="card-dashboard-booking col-6">
+              <div class="card-dashboard">
+                <div class="header full-width-flex">
+                  <h4>Menu: <%= Offer.find(booking.offer_id).title %></h4>
+                  <div class="right">
+                    <% case booking.status %>
+                    <% when "pending" %>
+                      <div class="orange">
+                        <span>
+                          <%= booking.status %>
+                        </span>
+                      </div>
+                    <% when "confirm" %>
+                      <div class="green">
+                        <span>
+                          <%= booking.status %>
+                        </span>
+                      </div>
+                    <% when "rejected" %>
+                      <div class="red">
+                        <span>
+                          <%= booking.status %>
+                        </span>
+                      </div>
+                    <% end %>
+                    <div class="red">
+                      <span> <%= booking.number_of_guests %> guests</span>
+                    </div>
+                    <div class="red">
+                      <span><%= booking.number_of_guests * Offer.find(booking.offer_id).price_per_person.to_i %> €</span>
+                    </div>
                   </div>
+                </div>
+
+                <div class="full-width-flex justify-between">
                   <div>
-                    <span>45€/pers</span>
+                    <h6>Date</h6>
+                    <div class="btn-bookings"> <%= booking.date.strftime("%m/%d/%Y") %> </div>
+                  </div>
+
+                  <div>
+                    <h6>Address</h6>
+                    <div class="btn-bookings"><%= booking.user.address %></div>
                   </div>
                 </div>
-              </div>
 
-              <div class="full-width-flex justify-between">
-                <div>
-                  <h6>Date</h6>
-                  <div class="btn-bookings">10/09/2022</div>
+                <div class="full-width-flex justify-between">
+                  <div class="element">
+                    <h6>Comment</h6>
+                    <div class="btn-bookings"><%= booking.comments %></div>
+                  </div>
                 </div>
 
-                <div>
-                  <h6>Address</h6>
-                  <div class="btn-bookings">7 Rue Jeanne Lanvin 33100 Bordeaux</div>
+                <div class="full-width-flex review">
+                  <h6>Review:</h6>
+                  <p>" <%= @reviews.find_by(booking_id: booking.id).comment %> "</p>
                 </div>
-              </div>
 
-              <div class="full-width-flex justify-between">
-                <div class="element">
-                  <h6>Comment</h6>
-                  <div class="btn-bookings">We are hungry !</div>
+                <div class="footer">
+                  <%= link_to "", class:"btn-booking-footer element green" do %>
+                    Accept
+                  <% end %>
+                  <%= link_to "", class:"btn-booking-footer element red" do %>
+                    Reject
+                  <% end %>
                 </div>
-              </div>
-
-              <div class="full-width-flex review">
-                <h6>Review:</h6>
-                <p>“That was so good !”</p>
-              </div>
-
-              <div class="footer">
-                <button class="btn-booking-footer element green">Accept</button>
-                <button class="btn-booking-footer element red">Reject</button>
               </div>
             </div>
-          </div>
-
-          <div class="card-dashboard-booking col-6">
-            <div class="card-dashboard">
-              <div class="header full-width-flex">
-                <h4>Menu: Brunch for Two</h4>
-                <div class="price">
-                  <span>45€/pers</span>
-                </div>
-              </div>
-
-              <div class="full-width-flex justify-between">
-                <div>
-                  <h6>Date</h6>
-                  <div class="btn-bookings">10/09/2022</div>
-                </div>
-
-                <div>
-                  <h6>Address</h6>
-                  <div class="btn-bookings">7 Rue Jeanne Lanvin 33100 Bordeaux</div>
-                </div>
-              </div>
-
-              <div class="full-width-flex justify-between">
-                <div class="element">
-                  <h6>Comment</h6>
-                  <div class="btn-bookings">We are hungry !</div>
-                </div>
-              </div>
-
-              <div class="full-width-flex review">
-                <h6>Review:</h6>
-                <p>“That was so good !”</p>
-              </div>
-
-              <div class="footer">
-                <button class="btn-booking-footer element green">Accept</button>
-                <button class="btn-booking-footer element red">Reject</button>
-              </div>
-            </div>
-          </div>
+          <% end %>
 
         </div>
       </div>
