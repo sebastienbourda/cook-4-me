@@ -122,11 +122,11 @@
                     </div>
 
 
-                    <div class="button">
+                    <div class="info button">
                       <span>Guests</span>
                       <h5><%= booking.number_of_guests %></h5>
                     </div>
-                    <div class="button">
+                    <div class="info  button">
                       <span>Amount</span>
                       <h5><%= booking.number_of_guests * Offer.find(booking.offer_id).price_per_person.to_i %> €</h5>
                     </div>
