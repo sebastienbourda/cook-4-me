@@ -3,21 +3,15 @@
 }
 
 .card-meal {
-  width: 28rem;
-  height: 23rem;
-  border-radius: 3px;
-  box-shadow: 0 0 5px rgb(230,230,230);
+  width: 29rem;
+  height: 16rem;
+  box-shadow: 0 0 40px rgb(230,230,230);
   padding: 30px;
   border: 1px solid rgb(230,230,230);
   overflow: hidden;
+  opacity: 0.9;
 }
 
-@media only screen and (max-height: 800px) {
-  .card-meal {
-    height: 370px;
-    opacity: 0.9;
-  }
-}
 .card-meal.form-group {
   width: 250px;
   margin: -100px;
@@ -85,6 +79,7 @@ h2 {
   border-radius:2%;
   height: 10rem;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .card.uk-card.uk-card-default.meal h1 {

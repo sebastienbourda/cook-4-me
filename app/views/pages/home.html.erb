@@ -2,21 +2,21 @@
   <div class="banner" style="background-image: url(assets/landing/meal-landing.jpeg);">
     <div class="container">
       <div class="container-fluid">
-        <div class ="card card-meal my-5 position-absolute">
         <br>
-        <h2>Discover offers from our chef for unique experiences</h1>
-        <form>
-          <br>
-          <div class="form-group col">
-            <label for="formGroupWhereInput">WHERE</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Bordeaux">
-          </div>
-          <div class="form-group col d-flex justify-content-center">
-            <%# <label for="formGroupNumberInput2">FOR HOW MANY</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="42"> %>
-            <input class='btn-secondary my-3 p-2' type='submit' value='check it'>
-          </div>
-        </form>
+        <br>
+        <br>
+        <div class ="card card-meal my-5 position-absolute">
+        <h2>Discover offers from our chefs for unique experiences</h1>
+        <br>
+        <p>What kind of food would you like?</p>
+        <%= form_with url: offers_path, method: :get, class: "d-flex search-bar-home" do %>
+          <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "eg. Japanese, french.."
+          %>
+          <%= submit_tag "Search", class: "btn btn-secondary" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -59,24 +59,6 @@
         <h1>For 13€/person</h1>
         <h3>In the "Fish and Dish" Menu</h3>
         <span class="chef-rating">Chef 4.82 ✯</span>
-      </div>
-
-      <div class="card uk-card uk-card-default meal">
-        <img src="https://images.unsplash.com/photo-1598532213919-078e54dd1f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80" alt="">
-        <h4>MAKADA NORATE</h4>
-        <h2>Super Potatoes</h2>
-        <h1>For 8€/person</h1>
-        <h3>In the "Simple Veggies" Menu</h3>
-        <span class="chef-rating">Chef 4.17 ✯</span>
-      </div>
-
-      <div class="card uk-card uk-card-default meal">
-        <img src="https://images.unsplash.com/photo-1564671165093-20688ff1fffa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=998&q=80" alt="">
-        <h4>RAJESH AJAY</h4>
-        <h2>Curry and rice</h2>
-        <h1>For 7€/person</h1>
-        <h3>In the "Spicy Veggies" Menu</h3>
-        <span class="chef-rating">Chef 4.18 ✯</span>
       </div>
 
       <div class="card uk-card uk-card-default meal rounded">
