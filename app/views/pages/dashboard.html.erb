@@ -25,7 +25,11 @@
             <% @offers.each do |offer| %>
               <div class="card-dashboard col-2">
                 <div class="card-dashboard-image">
+                <% if offer.photo.present? %>
+                  <%= cl_image_tag offer.photo.key %>
+                <% else %>
                   <%= image_tag("/assets/offers/#{offer.title.downcase}.jpg")%>
+                <% end %>
                   <%#= cl_image_tag (image_dans_l’instance), options %>
                   <div class="offers-btn">
                     <%= link_to edit_offer_path(offer), class:"btn" do %>
@@ -38,7 +42,7 @@
                     <% end %>
                   </div>
                 </div>
-                <h5>Beef menu</h5>
+                <h5><%= offer.title %></h5>
               </div>
             <% end %>
 
@@ -66,7 +70,11 @@
             <% @meals.each do |meal| %>
               <div class="card-dashboard col-2">
                 <div class="card-dashboard-image">
-                  <%= image_tag("/assets/meals/#{meal.name.downcase}.jpg") %>
+                  <% if meal.photo.present? %>
+                    <%= cl_image_tag meal.photo.key %>
+                  <% else %>
+                    <%= image_tag("/assets/meals/beef.jpg") %>
+                  <% end %>
                   <%#= cl_image_tag (image_dans_l’instance), options %>
                   <div class="offers-btn">
                     <%= link_to edit_meal_path(meal), class:"btn" do %>
@@ -79,7 +87,7 @@
                     <% end %>
                   </div>
                 </div>
-                <h5>Beef menu</h5>
+                <h5><%= meal.name %></h5>
               </div>
             <% end %>
 

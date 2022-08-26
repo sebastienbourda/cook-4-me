@@ -11,7 +11,7 @@
         <%= link_to(offer_path(offer)) do %>
           <div class="card card-offer">
             <% if offer.photo.present? %>
-              <%= cl_image_tag offer.photo, class: "image-offer" %>
+              <%= cl_image_tag offer.photo.key, class: "image-offer" %>
             <% else %>
               <%= image_tag "offers/#{offer.title.downcase}.jpg", class: "image-offer" %>
             <% end %>
