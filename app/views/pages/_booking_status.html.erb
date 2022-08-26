@@ -1,16 +1,16 @@
 <% case booking.status %>
 <% when "pending" %>
-  <div class="orange">
+  <div class="info orange">
     <span>Status</span>
     <h5><%= booking.status.capitalize %></h5>
   </div>
 <% when "confirmed" %>
-  <div class="green">
+  <div class="info green">
     <span>Status</span>
     <h5><%= booking.status.capitalize %></h5>
   </div>
 <% when "rejected" %>
-  <div class="red">
+  <div class="info red">
     <span>Status</span>
     <h5><%= booking.status.capitalize %></h5>
   </div>

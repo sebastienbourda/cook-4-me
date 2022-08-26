@@ -1,6 +1,6 @@
 <% if booking.status == "pending" %>
   <%= simple_form_for booking, url: booking_accept_path(booking), method: :post, class:"btn-booking-footer accept", data: { accept_button_target: "accept", action: "submit->accept-button#send" } do |f| %>
-    <%= f.button :submit, "Accept" %>
+    <%= f.button :submit, "Accept", class:"btn-booking-footer accept" %>
   <% end %>
 <% else %>
   <div class="btn-booking-footer bg-transparent"></div>
