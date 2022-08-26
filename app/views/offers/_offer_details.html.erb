@@ -1,4 +1,9 @@
-<div class="banner" style="background-image: linear-gradient(rgba(30,30,30,0.3), rgba(0,0,0,0.3)), url(<%= image_path("offers/" + @offer.title.downcase) %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(30,30,30,0.3), rgba(0,0,0,0.3)), url(
+                          <% if @offer.photo.key.present? %>
+                            '<%= @offer.photo.url %>'
+                          <% else %>
+                             '<%= image_path("offers/" + @offer.title.downcase) %>'
+                          <% end %>)">
  <div class="blur">
   <h2><%= title %></h2>
  </div>
