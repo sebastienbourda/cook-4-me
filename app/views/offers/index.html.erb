@@ -4,6 +4,17 @@
   </div>
 </div>
 
+<div class='container'>
+<h1 class='d-flex justify-content-center mt-5 pt-5' style='color: #0B211C'>Search for offer category</h2>
+<%= form_with url: offers_path, method: :get, class: "d-flex search-bar-offer" do %>
+  <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "eg. Japanese, french.."
+  %>
+  <%= submit_tag "Search", class: "btn btn-secondary" %>
+<% end %>
+</div>
 <div class="container-fluid p-5">
   <div class="row">
     <% @offers.each do |offer| %>
