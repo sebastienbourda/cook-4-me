@@ -10,7 +10,11 @@
       <div class="col-3 pb-3">
         <%= link_to(offer_path(offer)) do %>
           <div class="card card-offer">
-            <%= image_tag "offers/#{offer.title.downcase}.jpg", class: "image-offer" %>
+            <% if offer.photo.present? %>
+              <%= cl_image_tag offer.photo.key, class: "image-offer" %>
+            <% else %>
+              <%= image_tag "offers/#{offer.title.downcase}.jpg", class: "image-offer" %>
+            <% end %>
             <div class="card-body d-flex justify-content-between align-items-center">
               <div class="left-card-body">
                 <h6 class="card-subtitle text-muted"><%= User.find(offer.user_id).first_name %></h6>
