@@ -10,7 +10,7 @@
       <h3>Your chef: <%= @offer.user.first_name %></h3>
     </div>
     <% @offer.meals.each do |meal| %>
-      <div class="d-flex p-3 border-bottom">
+      <div class="d-flex py-4 px-3 border-bottom">
         <div>
           <% if meal.photo.present? %>
             <%= cl_image_tag meal.photo.key %>
