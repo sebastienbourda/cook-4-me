@@ -17,7 +17,11 @@
     <% @offer.meals.each do |meal| %>
       <div class="d-flex mt-3 border-bottom">
         <div>
-          <%= image_tag "meals/#{meal.name.downcase}"%>
+          <% if meal.photo.present? %>
+            <%= cl_image_tag meal.photo.key %>
+          <% else %>
+            <%= image_tag "meals/beef.jpg"%>
+          <% end %>
         </div>
         <div class ="ms-3">
           <h4><%= meal.name %></h4>
