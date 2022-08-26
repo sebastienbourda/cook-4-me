@@ -111,28 +111,17 @@
         <div class="row">
 
           <% @bookings.each do |booking| %>
-            <div class="card-dashboard-booking col-6">
+            <div class="card-dashboard-booking col-6" data-controller="accept-button" data-id="<%=booking.id%>">
               <div class="card-dashboard">
                 <div class="header full-width-flex">
                   <h4>Menu: <%= Offer.find(booking.offer_id).title %></h4>
                   <div class="right">
-                    <% case booking.status %>
-                    <% when "pending" %>
-                      <div class="orange">
-                        <span>Status</span>
-                        <h5><%= booking.status.capitalize %></h5>
-                      </div>
-                    <% when "confirmed" %>
-                      <div class="green">
-                        <span>Status</span>
-                        <h5><%= booking.status.capitalize %></h5>
-                      </div>
-                    <% when "rejected" %>
-                      <div class="red">
-                        <span>Status</span>
-                        <h5><%= booking.status.capitalize %></h5>
-                      </div>
-                    <% end %>
+
+                    <div data-accept-button-target="status">
+                      <%= render "booking_status", booking: booking %>
+                    </div>
+
+
                     <div class="button">
                       <span>Guests</span>
                       <h5><%= booking.number_of_guests %></h5>
@@ -174,15 +163,10 @@
                   <p>" <%= @reviews.find_by(booking_id: booking.id).comment %> "</p>
                 </div>
                 <% if current_user.chef %>
-                  <div class="footer">
-                  <% if booking.status == "pending" %>
-                    <%= button_to "Accept", booking_accept_path(booking), method: :post, class:"btn-booking-footer accept" %>
-                  <% end %>
-                  <% if booking.status == "pending" %>
-                    <%= button_to "Reject", booking_reject_path(booking), method: :post, class:"btn-booking-footer reject" %>
-                  <% elsif booking.status == "confirmed" %>
-                    <%= button_to "Cancel", booking_reject_path(booking), method: :post, class:"btn-booking-footer cancel" %>
-                  <% end %>
+
+                  <div class="footer" data-accept-button-target="buttons">
+                    <%= render "accept_reject_buttons", booking: booking %>
+
                   </div>
                 <% end %>
               </div>

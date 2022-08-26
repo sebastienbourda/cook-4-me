@@ -23,7 +23,11 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @booking.update(status: 1)
     @booking.save
-    redirect_to dashboard_path
+
+    respond_to do |format|
+      format.html { redirect_to dashboard_path }
+      format.json
+    end
   end
 
   def reject
