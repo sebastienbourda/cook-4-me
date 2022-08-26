@@ -4,5 +4,8 @@
 
 import { application } from "./application"
 
+import AcceptButtonController from "./accept_button_controller"
+application.register("accept-button", AcceptButtonController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)

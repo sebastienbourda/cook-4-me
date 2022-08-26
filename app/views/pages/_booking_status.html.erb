@@ -1,0 +1,20 @@
+<% case booking.status %>
+<% when "pending" %>
+  <div class="orange">
+    <span>
+      <%= booking.status %>
+    </span>
+  </div>
+<% when "confirmed" %>
+  <div class="green">
+    <span>
+      <%= booking.status %>
+    </span>
+  </div>
+<% when "rejected" %>
+  <div class="red">
+    <span>
+      <%= booking.status %>
+    </span>
+  </div>
+<% end %>
