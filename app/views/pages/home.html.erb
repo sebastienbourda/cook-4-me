@@ -4,17 +4,16 @@
       <div class="container-fluid">
         <div class ="card card-meal my-5 position-absolute">
         <h2>Discover offers from our chef for unique experiences</h1>
-        <form>
-          <div class="form-group col">
-            <label for="formGroupWhereInput">WHERE</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Bordeaux">
-          </div>
-          <div class="form-group col d-flex justify-content-center">
-            <%# <label for="formGroupNumberInput2">FOR HOW MANY</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="42"> %>
-            <input class='btn-secondary my-3 p-2' type='submit' value='check it'>
-          </div>
-        </form>
+        <br>
+        <p>What kind of food would you like?</p>
+        <%= form_with url: offers_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "eg. Japanese, french.."
+          %>
+          <%= submit_tag "Search", class: "btn btn-secondary" %>
+          <% end %>
         </div>
       </div>
     </div>
