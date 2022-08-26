@@ -115,7 +115,7 @@
                           <%= booking.status %>
                         </span>
                       </div>
-                    <% when "confirm" %>
+                    <% when "confirmed" %>
                       <div class="green">
                         <span>
                           <%= booking.status %>
@@ -160,15 +160,18 @@
                   <h6>Review:</h6>
                   <p>" <%= @reviews.find_by(booking_id: booking.id).comment %> "</p>
                 </div>
-
-                <div class="footer">
-                  <%= link_to "", class:"btn-booking-footer element green" do %>
-                    Accept
+                <% if current_user.chef %>
+                  <div class="footer">
+                  <% if booking.status == "pending" %>
+                    <%= button_to "Accept", booking_accept_path(booking), method: :post, class:"btn-booking-footer element green" %>
                   <% end %>
-                  <%= link_to "", class:"btn-booking-footer element red" do %>
-                    Reject
+                  <% if booking.status == "pending" %>
+                    <%= button_to "Reject", booking_reject_path(booking), method: :post, class:"btn-booking-footer element red" %>
+                  <% elsif booking.status == "confirmed" %>
+                    <%= button_to "Cancel", booking_reject_path(booking), method: :post, class:"btn-booking-footer element red" %>
                   <% end %>
-                </div>
+                  </div>
+                <% end %>
               </div>
             </div>
           <% end %>

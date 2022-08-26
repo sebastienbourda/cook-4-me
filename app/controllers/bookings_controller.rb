@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_offer
+  before_action :set_offer, except: [:accept, :reject]
 
   def show
     @booking = Booking.find(params[:id])
@@ -20,9 +20,17 @@ class BookingsController < ApplicationController
   end
 
   def accept
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:booking_id])
     @booking.update(status: 1)
     @booking.save
+    redirect_to dashboard_path
+  end
+
+  def reject
+    @booking = Booking.find(params[:booking_id])
+    @booking.update(status: 2)
+    @booking.save
+    redirect_to dashboard_path
   end
 
   private
