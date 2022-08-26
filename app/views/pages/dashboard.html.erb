@@ -119,28 +119,27 @@
                     <% case booking.status %>
                     <% when "pending" %>
                       <div class="orange">
-                        <span>
-                          <%= booking.status %>
-                        </span>
+                        <span>Status</span>
+                        <h5><%= booking.status.capitalize %></h5>
                       </div>
                     <% when "confirmed" %>
                       <div class="green">
-                        <span>
-                          <%= booking.status %>
-                        </span>
+                        <span>Status</span>
+                        <h5><%= booking.status.capitalize %></h5>
                       </div>
                     <% when "rejected" %>
                       <div class="red">
-                        <span>
-                          <%= booking.status %>
-                        </span>
+                        <span>Status</span>
+                        <h5><%= booking.status.capitalize %></h5>
                       </div>
                     <% end %>
                     <div class="button">
-                      <span> <%= booking.number_of_guests %> guests</span>
+                      <span>Guests</span>
+                      <h5><%= booking.number_of_guests %></h5>
                     </div>
                     <div class="button">
-                      <span><%= booking.number_of_guests * Offer.find(booking.offer_id).price_per_person.to_i %> €</span>
+                      <span>Amount</span>
+                      <h5><%= booking.number_of_guests * Offer.find(booking.offer_id).price_per_person.to_i %> €</h5>
                     </div>
                   </div>
                 </div>
@@ -148,19 +147,25 @@
                 <div class="full-width-flex justify-between">
                   <div>
                     <h6>Date</h6>
-                    <div class="btn-bookings"> <%= booking.date.strftime("%m/%d/%Y") %> </div>
+                    <div class="btn-bookings">
+                      <h5><%= booking.date.strftime("%m/%d/%Y") %></h5>
+                    </div>
                   </div>
 
                   <div>
                     <h6>Address</h6>
-                    <div class="btn-bookings"><%= booking.user.address %></div>
+                    <div class="btn-bookings">
+                      <h5><%= booking.user.address %></h5>
+                    </div>
                   </div>
                 </div>
 
                 <div class="full-width-flex justify-between">
                   <div class="element">
                     <h6>Comment</h6>
-                    <div class="btn-bookings"><%= booking.comments %></div>
+                    <div class="btn-bookings">
+                      <h5><%= booking.comments %></h5>
+                    </div>
                   </div>
                 </div>
 

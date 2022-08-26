@@ -3,6 +3,10 @@
   color: #fff;
   margin-bottom: 1.5rem;
 
+  h5 {
+    font-weight: bold;
+  }
+
   h6 {
     margin-bottom: 4px!important;
     font-style: normal;
@@ -44,17 +48,18 @@
       }
       div {
         border-radius: 5px;
-        padding: 8px;
+        padding: 8px 16px;
         margin-left: 8px;
+        color: #0b211c;
       }
       .red{
-        background: #582020;
+        background: #f1d8de;
       }
       .green{
-        background: green;
+        background: #d5f4ed;
       }
       .orange{
-        background: orange
+        background: #EBC9B1;
       }
     }
   }
